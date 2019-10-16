@@ -1,0 +1,8 @@
+
+nsquid:S11922"PUse already-defined constant 'USER_EMAIL' instead of duplicating its value here.(¡Ëâì8Š™ÑÖØ-
+Esquid:S1172 "(Remove this unused method parameter "i".(õØ¥E8Š™ÑÖØ-
+squid:S34577"aNo need to call "toString()" method as formatting and string conversion is done by the Formatter.(¸†Í½8ŞÚœöÚ-
+nsquid:S11920"PUse already-defined constant 'USER_LOGIN' instead of duplicating its value here.(éÎËü8Š™ÑÖØ-
+Bsquid:S26297"$Invoke method(s) only conditionally.(¸†Í½8ŞÚœöÚ-
+gsquid:S11921"IDefine a constant instead of duplicating this literal "userName" 3 times.(ÜÜ­á8ßÃ¦¿Ü-
+tsquid:S2068"V'PASSWORD' detected in this expression, review this potentially hard-coded credential.(¾Ÿ“‹8Š™ÑÖØ-
