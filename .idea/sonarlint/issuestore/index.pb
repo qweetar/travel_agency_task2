@@ -99,3 +99,9 @@ m
 =src/main/java/ru/myfirstwebsite/config/WebAppInitializer.java,3\f\3fb50b54aca30988e62e17278fe6eaf1d8f2fa75
 j
 :src/main/java/ru/myfirstwebsite/config/DatabaseConfig.java,0\1\01aa38b591aa4932570bd84a35ddf569e04c1f96
+³
+‚.idea/dataSources/5f013d77-bbcb-4a05-aab4-2b067b672e5b/storage_v2/_src_/database/travel_agency_db.E_zL2Q/schema/public.abK9xQ.meta,f\6\f6203a38b17276a5f9422026fc60d2fcc9e26a0c
+j
+:.idea/dataSources/5f013d77-bbcb-4a05-aab4-2b067b672e5b.xml,8\0\808ea8c62f7a4b0932487df7151e6a5ca283f7d7
+_
+/src/main/resources/db/migration/V1__Init_DB.sql,e\a\ea5a850a4dd0c2c156439b02ce8d7c61297e708b

@@ -24,14 +24,14 @@
       <ObjectId>41399</ObjectId>
       <StateNumber>2822</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2836</IntrospectionStateNumber>
+      <IntrospectionStateNumber>6078</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
-      <Relations>sequence|table|41412|41414|1
-sequence|table|41423|41425|1
+      <Relations>sequence|table|41423|41425|1
 sequence|table|41431|41433|1
 sequence|table|41442|41444|1
 sequence|table|41478|41480|1
+sequence|table|41541|41414|1
 </Relations>
     </database>
     <role id="6" parent="1" name="pg_execute_server_program">
@@ -117,7 +117,7 @@ sequence|table|41478|41480|1
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2837</IntrospectionStateNumber>
+      <IntrospectionStateNumber>6079</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -188,7 +188,7 @@ sequence|table|41478|41480|1
     <sequence id="29" parent="20" name="country_id_seq">
       <ObjectId>41423</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2826</StateNumber>
+      <StateNumber>6031</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
@@ -196,7 +196,7 @@ sequence|table|41478|41480|1
     <sequence id="30" parent="20" name="hotel_id_seq">
       <ObjectId>41431</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2826</StateNumber>
+      <StateNumber>6034</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
@@ -204,7 +204,7 @@ sequence|table|41478|41480|1
     <sequence id="31" parent="20" name="review_id_seq">
       <ObjectId>41478</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2826</StateNumber>
+      <StateNumber>6039</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
@@ -212,15 +212,15 @@ sequence|table|41478|41480|1
     <sequence id="32" parent="20" name="tour_id_seq">
       <ObjectId>41442</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2826</StateNumber>
+      <StateNumber>6042</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
     <sequence id="33" parent="20" name="usr_id_seq">
-      <ObjectId>41412</ObjectId>
+      <ObjectId>41541</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2826</StateNumber>
+      <StateNumber>6077</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
@@ -243,12 +243,12 @@ sequence|table|41478|41480|1
     <table id="37" parent="20" name="review">
       <ObjectId>41480</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2826</StateNumber>
+      <StateNumber>6066</StateNumber>
     </table>
     <table id="38" parent="20" name="tour">
       <ObjectId>41444</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2826</StateNumber>
+      <StateNumber>6066</StateNumber>
     </table>
     <table id="39" parent="20" name="user_tour">
       <ObjectId>41463</ObjectId>
@@ -443,11 +443,11 @@ sequence|table|41478|41480|1
       <DefaultExpression>nextval(&apos;review_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="68" parent="37" name="tourdate">
+    <column id="68" parent="37" name="date">
       <Position>2</Position>
-      <DataType>timestamp|0s</DataType>
-      <StateNumber>2826</StateNumber>
-      <TypeId>1114</TypeId>
+      <DataType>date|0s</DataType>
+      <StateNumber>6066</StateNumber>
+      <TypeId>1082</TypeId>
     </column>
     <column id="69" parent="37" name="text">
       <Position>3</Position>
@@ -471,7 +471,7 @@ sequence|table|41478|41480|1
     </column>
     <index id="72" parent="37" name="review_pkey">
       <ObjectId>41487</ObjectId>
-      <StateNumber>2826</StateNumber>
+      <StateNumber>6066</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
@@ -516,11 +516,11 @@ sequence|table|41478|41480|1
       <StateNumber>2826</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="78" parent="38" name="data">
+    <column id="78" parent="38" name="date">
       <Position>3</Position>
-      <DataType>timestamp|0s</DataType>
-      <StateNumber>2826</StateNumber>
-      <TypeId>1114</TypeId>
+      <DataType>date|0s</DataType>
+      <StateNumber>6066</StateNumber>
+      <TypeId>1082</TypeId>
     </column>
     <column id="79" parent="38" name="duration">
       <Position>4</Position>
@@ -536,9 +536,9 @@ sequence|table|41478|41480|1
     </column>
     <column id="81" parent="38" name="cost">
       <Position>6</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>2826</StateNumber>
-      <TypeId>23</TypeId>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>3980</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
     <column id="82" parent="38" name="tour_type">
       <Position>7</Position>
@@ -562,7 +562,7 @@ sequence|table|41478|41480|1
     </column>
     <index id="85" parent="38" name="tour_pkey">
       <ObjectId>41451</ObjectId>
-      <StateNumber>2826</StateNumber>
+      <StateNumber>6066</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
@@ -646,7 +646,7 @@ tour_id</ColNames>
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>2826</StateNumber>
+      <StateNumber>6050</StateNumber>
       <DefaultExpression>nextval(&apos;usr_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>

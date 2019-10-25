@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 
@@ -41,36 +40,4 @@ public class DatabaseConfig {
     return dataSource;
   }
 
-//    @Bean(value = "dataSource")
-//    @Scope("singleton")
-//    public DataSource getDataSource() {
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//        dataSource.setDriverClassName(properties.getProperty("driverName"));
-//        dataSource.setPassword(properties.getProperty("password"));
-//        dataSource.setUrl(properties.getProperty("url"));
-//        dataSource.setUsername(properties.getProperty("login"));
-//        return dataSource;
-//    }
-
-//    @Bean(destroyMethod = "close")
-//    public DataSource dataSource(){
-//        HikariConfig hikariConfig = new HikariConfig();
-//        hikariConfig.setDriverClassName("com.mysql.jdbc.Driver");
-//        hikariConfig.setJdbcUrl("jdbc:mysql://localhost:3306/spring-test");
-//        hikariConfig.setUsername("root");
-//        hikariConfig.setPassword("admin");
-//
-//        hikariConfig.setMaximumPoolSize(5);
-//        hikariConfig.setConnectionTestQuery("SELECT 1");
-//        hikariConfig.setPoolName("springHikariCP");
-//
-//        hikariConfig.addDataSourceProperty("dataSource.cachePrepStmts", "true");
-//        hikariConfig.addDataSourceProperty("dataSource.prepStmtCacheSize", "250");
-//        hikariConfig.addDataSourceProperty("dataSource.prepStmtCacheSqlLimit", "2048");
-//        hikariConfig.addDataSourceProperty("dataSource.useServerPrepStmts", "true");
-//
-//        HikariDataSource dataSource = new HikariDataSource(hikariConfig);
-//
-//        return dataSource;
-//    }
 }

@@ -1,117 +1,41 @@
 package ru.myfirstwebsite.domain;
 
+import lombok.Data;
 import ru.myfirstwebsite.domain.enums.Features;
 
+import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
+@Entity
+@Table(name = "hotel")
+@Data
 public class Hotel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long hotelId;
+
+    @Column(name = "name")
     private String hotelName;
+
+    @Column(name = "stars")
     private Integer hotelStars;
+
+    @Column(name = "website")
     private String hotelWebSite;
+
+    @Column(name = "latitude")
     private String hotelLatitude;
+
+    @Column(name = "longitude")
     private String hotelLongitude;
+
+    @Column(name = "features")
     private Features hotelFeatures;
 
-    public Hotel() {
-    }
+    @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Tour> tours;
 
-    public Hotel(Long hotelId, String hotelName, Integer hotelStars, String hotelWebSite, String hotelLatitude, String hotelLongitude, Features hotelFeatures) {
-        this.hotelId = hotelId;
-        this.hotelName = hotelName;
-        this.hotelStars = hotelStars;
-        this.hotelWebSite = hotelWebSite;
-        this.hotelLatitude = hotelLatitude;
-        this.hotelLongitude = hotelLongitude;
-        this.hotelFeatures = hotelFeatures;
-    }
-
-    public Long getHotelId() {
-        return hotelId;
-    }
-
-    public void setHotelId(Long hotelId) {
-        this.hotelId = hotelId;
-    }
-
-    public String getHotelName() {
-        return hotelName;
-    }
-
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
-    }
-
-    public Integer getHotelStars() {
-        return hotelStars;
-    }
-
-    public void setHotelStars(Integer hotelStars) {
-        this.hotelStars = hotelStars;
-    }
-
-    public String getHotelWebSite() {
-        return hotelWebSite;
-    }
-
-    public void setHotelWebSite(String hotelWebSite) {
-        this.hotelWebSite = hotelWebSite;
-    }
-
-    public String getHotelLatitude() {
-        return hotelLatitude;
-    }
-
-    public void setHotelLatitude(String hotelLatitude) {
-        this.hotelLatitude = hotelLatitude;
-    }
-
-    public String getHotelLongitude() {
-        return hotelLongitude;
-    }
-
-    public void setHotelLongitude(String hotelLongitude) {
-        this.hotelLongitude = hotelLongitude;
-    }
-
-    public Features getHotelFeatures() {
-        return hotelFeatures;
-    }
-
-    public void setHotelFeatures(Features hotelFeatures) {
-        this.hotelFeatures = hotelFeatures;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Hotel hotel = (Hotel) o;
-        return Objects.equals(getHotelId(), hotel.getHotelId()) &&
-                Objects.equals(getHotelName(), hotel.getHotelName()) &&
-                Objects.equals(getHotelStars(), hotel.getHotelStars()) &&
-                Objects.equals(getHotelWebSite(), hotel.getHotelWebSite()) &&
-                Objects.equals(getHotelLatitude(), hotel.getHotelLatitude()) &&
-                Objects.equals(getHotelLongitude(), hotel.getHotelLongitude()) &&
-                getHotelFeatures() == hotel.getHotelFeatures();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getHotelId(), getHotelName(), getHotelStars(), getHotelWebSite(), getHotelLatitude(), getHotelLongitude(), getHotelFeatures());
-    }
-
-    @Override
-    public String toString() {
-        return "Hotel{" +
-                "hotelId=" + hotelId +
-                ", hotelName='" + hotelName + '\'' +
-                ", hotelStars=" + hotelStars +
-                ", hotelWebSite='" + hotelWebSite + '\'' +
-                ", hotelLatitude='" + hotelLatitude + '\'' +
-                ", hotelLongitude='" + hotelLongitude + '\'' +
-                ", hotelFeatures=" + hotelFeatures +
-                '}';
-    }
 }

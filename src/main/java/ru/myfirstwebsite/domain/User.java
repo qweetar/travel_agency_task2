@@ -1,61 +1,47 @@
 package ru.myfirstwebsite.domain;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+@Entity
+@Table(name = "usr")
+@Data
+@EqualsAndHashCode(of = {"id"})
+@ToString(of = {"id", "userName"})
 public class User {
 
-    private Long id;
-    private String userName;
-    private String email;
-    private String login;
-    private String pass;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
+  private Long id;
 
-    public User() {
-    }
+  @Column(name = "username")
+  private String userName;
 
-    public User(Long id, String userName, String email, String login, String pass) {
-        this.id = id;
-        this.userName = userName;
-        this.email = email;
-        this.login = login;
-        this.pass = pass;
-    }
+  @Column(name = "email")
+  private String email;
 
-    public Long getId() {
-        return id;
-    }
+  @Column(name = "login")
+  private String login;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  @Column(name = "password")
+  private String pass;
 
-    public String getUserName() {
-        return userName;
-    }
+  @OneToMany(mappedBy = "review", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  private Set<Review> reviews;
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+  @ManyToMany
+  @JoinTable(
+          name = "user_tour",
+          joinColumns = {@JoinColumn(name = "usr_id")},
+          inverseJoinColumns = {@JoinColumn(name = "tour_id")}
+  )
+  private Set<Tour> userTours = new HashSet<>();
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
 }
