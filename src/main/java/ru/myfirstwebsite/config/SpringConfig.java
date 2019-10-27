@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import ru.myfirstwebsite.aspect.LoggingAspect;
 import ru.myfirstwebsite.dao.*;
 import ru.myfirstwebsite.dao.impl.*;
 import ru.myfirstwebsite.service.*;
@@ -15,6 +17,7 @@ import ru.myfirstwebsite.service.impl.*;
 import javax.sql.DataSource;
 
 @Configuration
+@EnableAspectJAutoProxy
 @Import(DatabaseConfig.class)
 public class SpringConfig {
 
@@ -30,6 +33,11 @@ public class SpringConfig {
     @Bean
     public NamedParameterJdbcTemplate getNameParameterJdbcTemplate() {
         return new NamedParameterJdbcTemplate(dataSource);
+    }
+
+    @Bean
+    public LoggingAspect getLoggingAspect() {
+        return new LoggingAspect();
     }
 
 //  @Bean(initMethod = "migrate")

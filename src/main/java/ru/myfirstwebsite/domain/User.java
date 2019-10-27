@@ -12,7 +12,7 @@ import java.util.Set;
 @Table(name = "usr")
 @Data
 @EqualsAndHashCode(of = {"id"})
-@ToString(of = {"id", "userName"})
+@ToString(of = {"userName", "email"})
 public class User {
 
   @Id

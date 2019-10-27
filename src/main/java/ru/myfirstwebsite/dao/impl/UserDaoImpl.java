@@ -1,7 +1,5 @@
 package ru.myfirstwebsite.dao.impl;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -15,8 +13,6 @@ import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-
-    final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
@@ -52,8 +48,6 @@ public class UserDaoImpl implements UserDao {
         params.addValue("pass", user.getPass());
 
         namedParameterJdbcTemplate.update(saveQuery, params);
-
-        logger.info("The new user has been added {}", user.toString());
     }
 
     @Override
@@ -84,8 +78,6 @@ public class UserDaoImpl implements UserDao {
         params.addValue("pass", user.getPass());
 
         params.addValue("id", user.getId());
-
-        logger.info("User changed his information.");
 
         namedParameterJdbcTemplate.update(updateQuery, params);
 
