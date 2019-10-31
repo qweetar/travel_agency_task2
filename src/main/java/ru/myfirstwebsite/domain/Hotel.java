@@ -35,7 +35,7 @@ public class Hotel {
     @Column(name = "features")
     private Features hotelFeatures;
 
-    @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Tour> tours;
+//    @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private Set<Tour> tours;
 
 }

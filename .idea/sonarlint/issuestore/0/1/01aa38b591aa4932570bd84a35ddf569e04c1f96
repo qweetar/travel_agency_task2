@@ -1,4 +1,4 @@
 
-wsquid:S3305"TInject this field value directly into "getDataSource", the only method that uses it.(¨æ€öùÿÿÿÿ8å ¿Û×-
-isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾›âÄ8º°Åˆà-
-…squid:S1488'"bImmediately return this expression instead of assigning it to the temporary variable "dataSource".(Ò”ÃÒüÿÿÿÿ8º°Åˆà-
+ƒsquid:S1488"bImmediately return this expression instead of assigning it to the temporary variable "dataSource".(Ò”ÃÒüÿÿÿÿ8½¿¬áà-
+usquid:S3305"TInject this field value directly into "getDataSource", the only method that uses it.(¨æ€öùÿÿÿÿ8½¿¬áà-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾›âÄ8½¿¬áà-

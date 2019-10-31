@@ -1,12 +1,14 @@
 package ru.myfirstwebsite.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.myfirstwebsite.dao.CountryDao;
 import ru.myfirstwebsite.domain.Country;
 import ru.myfirstwebsite.service.CountryService;
 
 import java.util.List;
 
+@Service
 public class CountryServiceImpl implements CountryService {
 
     @Autowired

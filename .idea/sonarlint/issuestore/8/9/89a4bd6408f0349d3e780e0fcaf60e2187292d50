@@ -1,7 +1,27 @@
 
-nsquid:S11921"PUse already-defined constant 'USER_LOGIN' instead of duplicating its value here.(éÎËü8¹ãÿéÜ-
-nsquid:S11923"PUse already-defined constant 'USER_EMAIL' instead of duplicating its value here.(¡Ëâì8¹ãÿéÜ-
-Esquid:S1172!"(Remove this unused method parameter "i".(õØ¥E8ò¬€êÜ-
-tsquid:S2068"V'PASSWORD' detected in this expression, review this potentially hard-coded credential.(¾Ÿ“‹8¹ãÿéÜ-
-squid:S34578"aNo need to call "toString()" method as formatting and string conversion is done by the Formatter.(¸†Í½8¹ãÿéÜ-
-Bsquid:S26298"$Invoke method(s) only conditionally.(¸†Í½8¹ãÿéÜ-
+osquid:CommentedOutCodeLineµ"<This block of commented-out lines of code should be removed.(¸¾ıûÿÿÿÿ8õ„¶„á-
+nsquid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(úôøˆùÿÿÿÿ8õ„¶„á-
+isquid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(»À¨ù8õ„¶„á-
+nsquid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(Ó‚²ÿÿÿÿÿ8õ„¶„á-
+jsquid:CommentedOutCodeLineÁ"<This block of commented-out lines of code should be removed.(—ûŸ©8ö„¶„á-
+isquid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(ÊŠïø8õ„¶„á-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÁíáØüÿÿÿÿ8õ„¶„á-
+nsquid:CommentedOutCodeLine\"<This block of commented-out lines of code should be removed.(ş·ÆÁùÿÿÿÿ8õ„¶„á-
+isquid:CommentedOutCodeLineg"<This block of commented-out lines of code should be removed.(Å†ßš8õ„¶„á-
+jsquid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(ÙÚ¾ç8õ„¶„á-
+jsquid:CommentedOutCodeLine‹"<This block of commented-out lines of code should be removed.(æñ”ò8õ„¶„á-
+osquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8õ„¶„á-
+osquid:CommentedOutCodeLineÉ"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ö„¶„á-
+nsquid:CommentedOutCodeLineA"<This block of commented-out lines of code should be removed.(à¶Ô«ùÿÿÿÿ8õ„¶„á-
+jsquid:CommentedOutCodeLine¸"<This block of commented-out lines of code should be removed.(»À¨ù8õ„¶„á-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(óûô»úÿÿÿÿ8õ„¶„á-
+jsquid:CommentedOutCodeLineƒ"<This block of commented-out lines of code should be removed.(»À¨ù8õ„¶„á-
+isquid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(éİÃº8õ„¶„á-
+osquid:CommentedOutCodeLine‰"<This block of commented-out lines of code should be removed.(´°ÈŒúÿÿÿÿ8õ„¶„á-
+osquid:CommentedOutCodeLineš"<This block of commented-out lines of code should be removed.(™¼øÿÿÿÿ8õ„¶„á-
+nsquid:CommentedOutCodeLine+"<This block of commented-out lines of code should be removed.(Ü¾¬Şüÿÿÿÿ8õ„¶„á-
+jsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(»À¨ù8õ„¶„á-
+isquid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.(»À¨ù8õ„¶„á-
+jsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(­½Ñ¯8õ„¶„á-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(—–ÓÅùÿÿÿÿ8 ³¬á-
+jsquid:CommentedOutCodeLine»"<This block of commented-out lines of code should be removed.(™œÜ8ö„¶„á-

@@ -2,6 +2,7 @@ package ru.myfirstwebsite.dao.impl;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 import ru.myfirstwebsite.dao.ReviewDao;
 import ru.myfirstwebsite.domain.Review;
 
@@ -9,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class ReviewDaoImpl implements ReviewDao {
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;

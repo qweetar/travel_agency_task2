@@ -22,11 +22,11 @@ public class Review {
     @Column(name = "text")
     private String reviewText;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "usr_id")
     private Long userId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Tour.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "tour_id")
     private Long tourId;
 

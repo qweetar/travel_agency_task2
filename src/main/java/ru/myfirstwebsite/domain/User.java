@@ -10,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "usr")
+//@NamedQuery(name = "User.findByEmail", query = "select u from User u where u.email = :email")
 @Data
 @EqualsAndHashCode(of = {"id"})
 @ToString(of = {"userName", "email"})
@@ -31,17 +32,5 @@ public class User {
 
   @Column(name = "password")
   private String pass;
-
-  @OneToMany(mappedBy = "review", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-  private Set<Review> reviews;
-
-  @ManyToMany
-  @JoinTable(
-          name = "user_tour",
-          joinColumns = {@JoinColumn(name = "usr_id")},
-          inverseJoinColumns = {@JoinColumn(name = "tour_id")}
-  )
-  private Set<Tour> userTours = new HashSet<>();
-
 
 }

@@ -2,6 +2,7 @@ package ru.myfirstwebsite.dao.impl;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 import ru.myfirstwebsite.dao.HotelDao;
 import ru.myfirstwebsite.domain.Hotel;
 import ru.myfirstwebsite.domain.enums.Features;
@@ -10,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class HotelDaoImpl implements HotelDao {
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;

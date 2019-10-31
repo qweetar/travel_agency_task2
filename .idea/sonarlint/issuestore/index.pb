@@ -87,10 +87,6 @@ n
 >src/main/java/ru/myfirstwebsite/controller/TourController.java,e\7\e7fada16d891105317ae20ae36b8267149a2a243
 A
 travel_agency.iml,1\c\1ceb893b39cb5a11b0757b72fe4c2fecbee7b4a1
-j
-:src/test/java/ru/myfirstwebsite/config/TestBeanConfig.java,b\3\b348ac26dcdb39f2456e5c3bde858c1faa8f3538
-p
-@src/test/java/ru/myfirstwebsite/service/UserServiceImplTest.java,0\6\06582e007e7f499a905ed19f940207153cfe6cec
 e
 5src/main/java/ru/myfirstwebsite/config/WebConfig.java,f\a\fa3f5abe9fd3ed60d5c2bfb5112fc8cab68826df
 h
@@ -105,3 +101,7 @@ j
 :.idea/dataSources/5f013d77-bbcb-4a05-aab4-2b067b672e5b.xml,8\0\808ea8c62f7a4b0932487df7151e6a5ca283f7d7
 _
 /src/main/resources/db/migration/V1__Init_DB.sql,e\a\ea5a850a4dd0c2c156439b02ce8d7c61297e708b
+i
+9src/main/java/ru/myfirstwebsite/aspect/LoggingAspect.java,2\7\27367e9a8ef6a846c4315970593ff7e38a69c8e0
+m
+=src/main/java/ru/myfirstwebsite/config/PersistenceConfig.java,9\7\975fa22d84ae70dd1beed7c4545dc22c253bae8e

@@ -16,16 +16,16 @@ import javax.sql.DataSource;
 public class DatabaseConfig {
 
     @Autowired
-    private Environment properties;
+    private Environment env;
 
   @Bean(value = "dataSource")
   @Scope("singleton")
   public DataSource getDataSource() {
     HikariConfig hikariConfig = new HikariConfig();
-    hikariConfig.setDriverClassName(properties.getProperty("driverName"));
-    hikariConfig.setJdbcUrl(properties.getProperty("url"));
-    hikariConfig.setUsername(properties.getProperty("login"));
-    hikariConfig.setPassword(properties.getProperty("password"));
+    hikariConfig.setDriverClassName(env.getProperty("driverName"));
+    hikariConfig.setJdbcUrl(env.getProperty("url"));
+    hikariConfig.setUsername(env.getProperty("login"));
+    hikariConfig.setPassword(env.getProperty("password"));
 
     hikariConfig.setMaximumPoolSize(5);
 //    hikariConfig.setConnectionTestQuery("SELECT 1");

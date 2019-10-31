@@ -2,6 +2,7 @@ package ru.myfirstwebsite.dao.impl;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 import ru.myfirstwebsite.dao.CountryDao;
 import ru.myfirstwebsite.domain.Country;
 
@@ -9,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class CountryDaoImpl implements CountryDao {
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;

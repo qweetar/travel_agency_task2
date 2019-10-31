@@ -2,6 +2,7 @@ package ru.myfirstwebsite.dao.impl;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 import ru.myfirstwebsite.dao.TourDao;
 import ru.myfirstwebsite.domain.Tour;
 import ru.myfirstwebsite.domain.enums.TourType;
@@ -10,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class TourDaoImpl implements TourDao {
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
