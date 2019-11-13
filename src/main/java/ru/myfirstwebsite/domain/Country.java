@@ -18,8 +18,8 @@ public class Country {
     @Column(name = "name")
     private String countryName;
 
-//    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private Set<Tour> tours;
+    @OneToMany(mappedBy = "country", fetch = FetchType.LAZY, orphanRemoval = true)
+    private Set<Tour> tours;
 
 
 }

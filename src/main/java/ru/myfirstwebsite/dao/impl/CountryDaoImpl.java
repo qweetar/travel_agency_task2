@@ -1,5 +1,10 @@
 package ru.myfirstwebsite.dao.impl;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -13,67 +18,51 @@ import java.util.List;
 @Repository
 public class CountryDaoImpl implements CountryDao {
 
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
-    public static final String COUNTRY_ID = "id";
-    public static final String COUNTRY_NAME = "name";
-
-    public CountryDaoImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
-    }
-
-    private Country getCountryRowMapper(ResultSet resultSet, int i) throws SQLException {
-        Country country = new Country();
-        country.setCountryId(resultSet.getInt(COUNTRY_ID));
-        country.setCountryName(resultSet.getString(COUNTRY_NAME));
-        return country;
-    }
+    @Autowired
+    @Qualifier("sessionFactory")
+    private SessionFactory sessionFactory;
 
     @Override
     public List<Country> findAll() {
-        final String findAllQuery = "select * from country";
-        return namedParameterJdbcTemplate.query(findAllQuery, this::getCountryRowMapper);
+        try (Session session = sessionFactory.openSession()){
+            return session.createQuery("select tu from Country tu", Country.class).getResultList();
+        }
     }
 
     @Override
     public Country getById(Integer id) {
-        final String getByIdQuery = "select * from country where id = :countryId";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("countryId", id);
-
-        return namedParameterJdbcTemplate.queryForObject(getByIdQuery, params, this::getCountryRowMapper);
+        try (Session session = sessionFactory.openSession()) {
+            return session.find(Country.class, id);
+        }
     }
 
     @Override
     public void delete(Integer id) {
-        final String deleteQuery = "delete from country where id = :countryId";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("countryId", id);
-
-        namedParameterJdbcTemplate.update(deleteQuery, params);
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.delete(getById(id));
+            session.getTransaction().commit();
+            session.close();
+        }
     }
 
     @Override
     public void save(Country entity) {
-        final String saveQuery = "insert into country (name) values (:countryName)";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("countryName", entity.getCountryName());
-
-        namedParameterJdbcTemplate.update(saveQuery, params);
-
+        try (Session session = sessionFactory.openSession()){
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            session.save(entity);
+            transaction.commit();
+        }
     }
 
     @Override
     public void update(Country entity) {
-        final String updateQuery = "update country set name = :countryName where id = :countryId";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("countryName", entity.getCountryName());
-        params.addValue("countryId", entity.getCountryId());
-
-        namedParameterJdbcTemplate.update(updateQuery, params);
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            session.saveOrUpdate(entity);
+            transaction.commit();
+        }
     }
 }

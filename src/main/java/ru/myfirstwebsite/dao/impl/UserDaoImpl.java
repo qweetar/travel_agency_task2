@@ -110,13 +110,13 @@ public class UserDaoImpl implements UserDao {
         try (Session session = sessionFactory.openSession()){
             Transaction transaction = session.getTransaction();
             transaction.begin();
-            session.saveOrUpdate(user);
-
-            User tempUser = session.get(User.class, user.getId());
-            tempUser.setPass(user.getPass());
-            tempUser.setEmail(user.getEmail());
-            tempUser.setLogin(user.getLogin());
-            tempUser.setUserName(user.getUserName());
+//            session.saveOrUpdate(user);
+//
+//            User tempUser = session.get(User.class, user.getId());
+//            tempUser.setPass(user.getPass());
+//            tempUser.setEmail(user.getEmail());
+//            tempUser.setLogin(user.getLogin());
+//            tempUser.setUserName(user.getUserName());
 
             session.saveOrUpdate(user);
             transaction.commit();

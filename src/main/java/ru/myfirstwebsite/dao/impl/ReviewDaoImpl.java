@@ -1,5 +1,10 @@
 package ru.myfirstwebsite.dao.impl;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -13,81 +18,52 @@ import java.util.List;
 @Repository
 public class ReviewDaoImpl implements ReviewDao {
 
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
-    public static final String REVIEW_ID  = "id";
-    public static final String REVIEW_DATE  = "date";
-    public static final String REVIEW_TEXT  = "text";
-    public static final String REVIEW_USER_ID  = "user_id";
-    public static final String REVIEW_TOUR_ID  = "tour_id";
-
-    public ReviewDaoImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
-    }
-
-    private Review getReviewRowMapper(ResultSet resultSet, int i) throws SQLException {
-        Review review = new Review();
-        review.setTourId(resultSet.getLong(REVIEW_ID));
-        review.setReviewDate(resultSet.getTimestamp(REVIEW_DATE));
-        review.setReviewText(resultSet.getString(REVIEW_TEXT));
-        review.setUserId(resultSet.getLong(REVIEW_USER_ID));
-        review.setTourId(resultSet.getLong(REVIEW_TOUR_ID));
-        return review;
-    }
+    @Autowired
+    @Qualifier("sessionFactory")
+    private SessionFactory sessionFactory;
 
     @Override
     public List<Review> findAll() {
-        final String findAllQuery = "select * from review";
-        return namedParameterJdbcTemplate.query(findAllQuery, this::getReviewRowMapper);
+        try (Session session = sessionFactory.openSession()){
+            return session.createQuery("select tu from Review tu", Review.class).getResultList();
+        }
     }
 
     @Override
     public Review getById(Long id) {
-        final String getByIdQuery = "select * from review where id = :reviewId";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("reviewId", id);
-
-        return namedParameterJdbcTemplate.queryForObject(getByIdQuery, params, this::getReviewRowMapper);
+        try (Session session = sessionFactory.openSession()){
+            return session.find(Review.class, id);
+        }
     }
 
     @Override
     public void delete(Long id) {
-        final String deleteQuery = "delete from review where id = :reviewId";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("reviewId", id);
-
-        namedParameterJdbcTemplate.update(deleteQuery, params);
+        try (Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            session.delete(getById(id));
+            session.getTransaction().commit();
+            session.close();
+        }
     }
 
     @Override
     public void save(Review entity) {
-        final String saveQuery = "insert into review (date, text, user_id, tour_id) values (:reviewDate, " +
-                ":reviewText, :userId, :tourId)";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("reviewDate", entity.getReviewDate());
-        params.addValue("reviewText", entity.getReviewText());
-        params.addValue("userId", entity.getUserId());
-        params.addValue("tourId", entity.getTourId());
-
-        namedParameterJdbcTemplate.update(saveQuery, params);
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            session.save(entity);
+            transaction.commit();
+        }
     }
 
     @Override
     public void update(Review entity) {
-        final String updateQuery = "update review set date = :reviewDate, text = :reviewText, user_id = :userId, " +
-                "tour_id = :tourId where id = :reviewId";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("reviewDate", entity.getReviewDate());
-        params.addValue("reviewText", entity.getReviewText());
-        params.addValue("userId", entity.getUserId());
-        params.addValue("tourId", entity.getTourId());
-        params.addValue("reviewId", entity.getReviewId());
-
-        namedParameterJdbcTemplate.update(updateQuery, params);
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            session.saveOrUpdate(entity);
+            transaction.commit();
+        }
 
     }
 }

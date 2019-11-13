@@ -37,19 +37,19 @@ public class Tour {
     @Column(name = "tour_type")
     private TourType tourType;
 
-    @ManyToOne(targetEntity = Hotel.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "usr_id")
-    private Long hotelId;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "hotel_id", nullable = false)
+    private Hotel hotel;
 
-    @ManyToOne(targetEntity = Country.class, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "country_id")
-    private Integer countryId;
+    private Country country;
 
-//    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private Set<Review> reviews;
-//
-//    @ManyToMany(mappedBy = "userTours")
-//    private Set<User> travelers = new HashSet<>();
+    @OneToMany(mappedBy = "tour", fetch = FetchType.LAZY)
+    private Set<Review> reviews;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tours")
+    private Set<User> users;
 
 
 

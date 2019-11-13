@@ -1,5 +1,10 @@
 package ru.myfirstwebsite.dao.impl;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -14,90 +19,51 @@ import java.util.List;
 @Repository
 public class HotelDaoImpl implements HotelDao {
 
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
-    public static final String HOTEL_ID = "id";
-    public static final String HOTEL_NAME = "name";
-    public static final String HOTEL_STARS = "stars";
-    public static final String HOTEL_WEBSITE = "website";
-    public static final String HOTEL_LATITUDE = "latitude";
-    public static final String HOTEL_LONGITUDE = "longitude";
-    public static final String HOTEL_FEATURES = "features";
-
-    public HotelDaoImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
-    }
-
-    private Hotel getHotelRowMapper(ResultSet resultSet, int i) throws SQLException {
-        Hotel hotel = new Hotel();
-        hotel.setHotelId(resultSet.getLong(HOTEL_ID));
-        hotel.setHotelName(resultSet.getString(HOTEL_NAME));
-        hotel.setHotelStars(resultSet.getInt(HOTEL_STARS));
-        hotel.setHotelWebSite(resultSet.getString(HOTEL_WEBSITE));
-        hotel.setHotelLatitude(resultSet.getString(HOTEL_LATITUDE));
-        hotel.setHotelLongitude(resultSet.getString(HOTEL_LONGITUDE));
-        hotel.setHotelFeatures(Features.valueOf(resultSet.getString(HOTEL_FEATURES)));
-        return hotel;
-    }
+    @Autowired
+    @Qualifier("sessionFactory")
+    private SessionFactory sessionFactory;
 
     @Override
     public List<Hotel> findAll() {
-        final String findAllQuery = "select * from hotel";
-        return namedParameterJdbcTemplate.query(findAllQuery, this::getHotelRowMapper);
+        try (Session session = sessionFactory.openSession()) {
+            return session.createQuery("select tu from Hotel tu", Hotel.class).getResultList();
+        }
     }
 
     @Override
     public Hotel getById(Long id) {
-        final String getByIdQuery = "select * from hotel where id = :hotelId";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("hotelId", id);
-
-        return namedParameterJdbcTemplate.queryForObject(getByIdQuery, params, this::getHotelRowMapper);
+        try (Session session = sessionFactory.openSession()) {
+            return session.find(Hotel.class, id);
+        }
     }
 
     @Override
     public void delete(Long id) {
-        final String deleteQuery = "delete from hotel where id = :hotelId";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("hotelId", id);
-
-        namedParameterJdbcTemplate.update(deleteQuery, params);
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.delete(getById(id));
+            session.getTransaction().commit();
+            session.close();
+        }
     }
 
     @Override
     public void save(Hotel entity) {
-        final String saveQuery = "insert into hotel (name, stars, website, latitude, longitude, features) " +
-                "values (:hotelName, :hotelStars, :hotelWebsite, :hotelLatitude, :hotelLongitude, :hotelFeatures)";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("hotelName", entity.getHotelName());
-        params.addValue("hotelStars", entity.getHotelStars());
-        params.addValue("hotelWebsite", entity.getHotelWebSite());
-        params.addValue("hotelLatitude", entity.getHotelLatitude());
-        params.addValue("hotelLongitude", entity.getHotelLongitude());
-        params.addValue("hotelFeatures", entity.getHotelFeatures());
-
-        namedParameterJdbcTemplate.update(saveQuery, params);
-
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            session.save(entity);
+            transaction.commit();
+        }
     }
 
     @Override
     public void update(Hotel entity) {
-        final  String updateQuery = "update hotel set name = :hotelName, stars = :hotelStars, website = :hotelWebsite," +
-                "latitude = :hotelLatitude, longitude = :hotelLongitude, features = :hotelFeatures where id = :hotelId";
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("hotelName", entity.getHotelName());
-        params.addValue("hotelStars", entity.getHotelStars());
-        params.addValue("hotelWebsite", entity.getHotelWebSite());
-        params.addValue("hotelLatitude", entity.getHotelLatitude());
-        params.addValue("hotelLongitude", entity.getHotelLongitude());
-        params.addValue("hotelFeatures", entity.getHotelFeatures());
-        params.addValue("hotelId", entity.getHotelId());
-
-        namedParameterJdbcTemplate.update(updateQuery, params);
-
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            session.saveOrUpdate(entity);
+            transaction.commit();
+        }
     }
 }

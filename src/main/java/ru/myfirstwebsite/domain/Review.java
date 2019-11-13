@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "review")
@@ -22,13 +21,13 @@ public class Review {
     @Column(name = "text")
     private String reviewText;
 
-    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "usr_id")
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user;
 
-    @ManyToOne(targetEntity = Tour.class, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "tour_id")
-    private Long tourId;
+    private Tour tour;
 
 
 }

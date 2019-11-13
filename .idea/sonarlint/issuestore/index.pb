@@ -105,3 +105,5 @@ i
 9src/main/java/ru/myfirstwebsite/aspect/LoggingAspect.java,2\7\27367e9a8ef6a846c4315970593ff7e38a69c8e0
 m
 =src/main/java/ru/myfirstwebsite/config/PersistenceConfig.java,9\7\975fa22d84ae70dd1beed7c4545dc22c253bae8e
+V
+&src/main/resources/database.properties,a\c\ac67e146dfc808d2c20a560fc45d091524658f02

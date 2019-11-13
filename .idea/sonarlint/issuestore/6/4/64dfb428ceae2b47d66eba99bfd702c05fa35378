@@ -1,4 +1,3 @@
 
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(º¢–»ùÿÿÿÿ8¢æ­á-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Þ²°à8¢æ­á-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(™ã«Ì8¢æ­á-
+Zsquid:UselessImportCheck	"*Remove this unused import 'java.util.Set'.(ö²„¤þÿÿÿÿ8ŽÆäúâ-
+Xsquid:UselessImportCheck".Remove this unused import 'java.util.HashSet'.(Ê‚êX8ŽÆäúâ-

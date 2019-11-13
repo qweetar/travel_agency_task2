@@ -5,7 +5,6 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -32,5 +31,15 @@ public class User {
 
   @Column(name = "password")
   private String pass;
+
+  @ManyToMany
+  @JoinTable(name = "user_tour",
+          joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+          inverseJoinColumns = @JoinColumn(name = "tour_id", referencedColumnName = "id")
+  )
+  private Set<Tour> tours;
+
+  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+  private Set<Review> reviews;
 
 }

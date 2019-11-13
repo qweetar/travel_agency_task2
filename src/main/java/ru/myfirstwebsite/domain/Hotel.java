@@ -1,6 +1,7 @@
 package ru.myfirstwebsite.domain;
 
 import lombok.Data;
+import lombok.ToString;
 import ru.myfirstwebsite.domain.enums.Features;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.util.Set;
 @Entity
 @Table(name = "hotel")
 @Data
+@ToString(exclude = "books")
 public class Hotel {
 
     @Id
@@ -35,7 +37,7 @@ public class Hotel {
     @Column(name = "features")
     private Features hotelFeatures;
 
-//    @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private Set<Tour> tours;
+    @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY, orphanRemoval = true)
+    private Set<Tour> tours;
 
 }
