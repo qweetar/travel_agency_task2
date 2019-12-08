@@ -1,3 +1,28 @@
 
-jsquid:S1192:"GDefine a constant instead of duplicating this literal "tourId" 3 times.(éê„Æüÿÿÿÿ8ûä˜¦Ù-
-Ksquid:S1172!"(Remove this unused method parameter "i".(±Ç³¥øÿÿÿÿ8½âÆ¥Ù-
+~squid:S1488‚"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8êÆ•Úê-
+jsquid:CommentedOutCodeLineä"<This block of commented-out lines of code should be removed.(Ø¯¢İ8¼ù€Éí-
+~squid:S1488¦"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8êÆ•Úê-
+W
+squid:S106Ù"9Replace this use of System.out or System.err by a logger.(ŞñÂÏ8¼ù€Éí-
+hsquid:S2095R"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8ŞæŸáé-
+jsquid:CommentedOutCodeLineŞ"<This block of commented-out lines of code should be removed.(¢¨íŠ8¼ù€Éí-
+osquid:CommentedOutCodeLine÷"<This block of commented-out lines of code should be removed.(âäÊëøÿÿÿÿ8¼ù€Éí-
+qsquid:S00117«"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œ˜ÎÒ8ßâîùì-
+ksquid:S1192V"HDefine a constant instead of duplicating this literal "country" 3 times.( ›Š­ÿÿÿÿÿ8ŞæŸáé-
+isquid:S2095¬"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8¼ù€Éí-
+W
+squid:S106Õ"9Replace this use of System.out or System.err by a logger.(¹ï8¼ù€Éí-
+}squid:S2293µ"YReplace the type specification in this constructor call with the diamond operator ("<>").(£æùßûÿÿÿÿ8¼ù€Éí-
+lsquid:S1192V"IDefine a constant instead of duplicating this literal "tourDate" 5 times.( ›Š­ÿÿÿÿÿ8ŞæŸáé-
+usquid:S00117q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰É‚ßıÿÿÿÿ8êÆ•Úê-
+}squid:S1488Y"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8ŞæŸáé-
+qsquid:S00117ˆ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çü¸8êÆ•Úê-
+…squid:S2178"fCorrect this "&" to "&&" and extract the right operand to a variable if it should always be evaluated.(Æí¡8êÆ•Úê-
+Isquid:S1168l"+Return an empty collection instead of null.(¥¹ï8êÆ•Úê-
+isquid:S2095Š"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8êÆ•Úê-
+hsquid:S2095w"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8êÆ•Úê-
+…squid:S2178¹"fCorrect this "&" to "&&" and extract the right operand to a variable if it should always be evaluated.(Æí¡8¼ù€Éí-
+jsquid:CommentedOutCodeLineº"<This block of commented-out lines of code should be removed.(©ÓÔ´8Ä…ˆÌí-
+osquid:CommentedOutCodeLineô"<This block of commented-out lines of code should be removed.(¼è÷ïøÿÿÿÿ8¼ù€Éí-
+\
+squid:S106×"9Replace this use of System.out or System.err by a logger.(ıí“êıÿÿÿÿ8¼ù€Éí-

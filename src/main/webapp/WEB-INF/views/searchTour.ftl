@@ -1,6 +1,7 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
-Update user page
+Tour search page
+
 <form name="user" action="/updateUser" method="post">
     <p>Id</p>
     <input title="Id" type="text" name="id" value="${user.id}">

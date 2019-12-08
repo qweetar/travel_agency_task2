@@ -107,3 +107,13 @@ m
 =src/main/java/ru/myfirstwebsite/config/PersistenceConfig.java,9\7\975fa22d84ae70dd1beed7c4545dc22c253bae8e
 V
 &src/main/resources/database.properties,a\c\ac67e146dfc808d2c20a560fc45d091524658f02
+Z
+*src/main/webapp/WEB-INF/views/showTour.ftl,7\f\7f16f964d7175b989d5946b9c307ff3cdee2c84b
+\
+,src/main/webapp/WEB-INF/views/searchTour.ftl,9\a\9a108cad6707a138bd4b1613acce5d6dfe87064d
+Z
+*src/main/webapp/WEB-INF/views/tourList.ftl,2\7\27581f08c34e45d2d1d7ee5211c4f95c00dc95f1
+^
+.src/main/webapp/WEB-INF/views/parts/common.ftl,b\d\bd016d6c5e7c31cb12d9af27cc2bd443a58e9931
+]
+-src/main/webapp/WEB-INF/views/parts/login.ftl,3\2\32c83a2fbd31fdfb761db244b7ba647416ba3940

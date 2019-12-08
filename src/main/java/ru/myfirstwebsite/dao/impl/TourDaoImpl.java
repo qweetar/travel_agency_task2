@@ -3,21 +3,31 @@ package ru.myfirstwebsite.dao.impl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import ru.myfirstwebsite.dao.CountryDao;
+import ru.myfirstwebsite.dao.HotelDao;
 import ru.myfirstwebsite.dao.TourDao;
-import ru.myfirstwebsite.domain.Tour;
+import ru.myfirstwebsite.domain.*;
 import ru.myfirstwebsite.domain.enums.TourType;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.persistence.criteria.*;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Repository
+@Transactional
 public class TourDaoImpl implements TourDao {
+
+    @Autowired
+    CountryDao countryDao;
+
+    @Autowired
+    HotelDao hotelDao;
 
     @Autowired
     @Qualifier("sessionFactory")
@@ -66,4 +76,68 @@ public class TourDaoImpl implements TourDao {
             transaction.commit();
         }
     }
+
+    @Override
+    public Iterable<Tour> findByCountry(String country) {
+        Country countryFromDb = countryDao.findByCountryName(country);
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Tour> cr = cb.createQuery(Tour.class);
+        Root<Tour> root = cr.from(Tour.class);
+        cr.select(root).where(cb.equal(root.get("country"), countryFromDb.getCountryId())).orderBy(cb.asc(root.get("tourDate")));
+
+        Query<Tour> query = session.createQuery(cr);
+        List<Tour> results = query.getResultList();
+        return results;
+        }
+
+    @Override
+    public Iterable<Tour> searchTour(String country, Date tour_date, Integer tourDuration, Float minTourPrice, Float maxTourPrice, Integer numStars, String tourType) {
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Tour> cr = cb.createQuery(Tour.class);
+        Root<Tour> tourRoot = cr.from(Tour.class);
+
+        Join<Tour, Country> countryJoin = tourRoot.join(Tour_.country);
+
+        Join<Tour, Hotel> hotelJoin = tourRoot.join(Tour_.hotel);
+
+        List<Predicate> criteria = new ArrayList<Predicate>();
+
+        cr.select(tourRoot);
+
+        if (country != null & !country.isEmpty()) {
+            criteria.add(cb.equal(countryJoin.get(Country_.countryName), country));
+        }
+
+        if (tour_date != null ) {
+            criteria.add(cb.equal(tourRoot.get(Tour_.tourDate), tour_date));
+        }
+
+        if (tourDuration != null) {
+            criteria.add(cb.equal(tourRoot.get(Tour_.tourDuration), tourDuration));
+        }
+
+        if (minTourPrice != null && maxTourPrice != null) {
+            criteria.add(cb.between(tourRoot.get(Tour_.tourCost), minTourPrice, maxTourPrice));
+        }
+
+        if (numStars != null) {
+            criteria.add(cb.equal(hotelJoin.get(Hotel_.hotelStars), numStars));
+        }
+
+        if (tourType != null && tourType != "") {
+            criteria.add(cb.equal(tourRoot.get(Tour_.tourType), TourType.valueOf(tourType)));
+        }
+
+        cr.where(cb.and(criteria.toArray(new Predicate[criteria.size()]))).orderBy(cb.asc(tourRoot.get("tourDate")));;
+
+        System.out.println("8");
+        Query<Tour> query = session.createQuery(cr);
+        System.out.println("9");
+        List<Tour> results = query.getResultList();
+        System.out.println("0");
+        return results;
+    }
+
 }

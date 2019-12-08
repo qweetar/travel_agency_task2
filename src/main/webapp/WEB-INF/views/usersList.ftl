@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Users list</h1>
+<#import "parts/common.ftl" as c>
+<@c.page>
+List of Users page
 <table>
     <tr>
         <th>Id</th>
@@ -27,5 +22,4 @@
 </table>
 
 <a href="/addUser">Create user</a>
-</body>
-</html>
+</@c.page>

@@ -1,6 +1,7 @@
 package ru.myfirstwebsite.domain;
 
 import lombok.Data;
+import org.omg.CORBA.INTERNAL;
 import ru.myfirstwebsite.domain.enums.TourType;
 
 import javax.persistence.*;
@@ -32,24 +33,23 @@ public class Tour {
     private String tourDescription;
 
     @Column(name = "cost")
-    private Integer tourCost;
+    private Float tourCost;
 
     @Column(name = "tour_type")
+    @Enumerated(EnumType.STRING)
     private TourType tourType;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "hotel_id", nullable = false)
     private Hotel hotel;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "country_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
     @OneToMany(mappedBy = "tour", fetch = FetchType.LAZY)
     private Set<Review> reviews;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "tours")
-    private Set<User> users;
 
 
 

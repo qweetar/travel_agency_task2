@@ -3,6 +3,7 @@ package ru.myfirstwebsite.dao.impl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -65,4 +66,15 @@ public class CountryDaoImpl implements CountryDao {
             transaction.commit();
         }
     }
+
+    @Override
+    public Country findByCountryName(String countryName) {
+        try (Session session = sessionFactory.openSession()) {
+            Query<Country> query = session.createQuery("select tu from Country tu where tu.countryName = :countryName", Country.class);
+            query.setParameter("countryName", countryName);
+            return query.getSingleResult();
+        }
+    }
+
+
 }

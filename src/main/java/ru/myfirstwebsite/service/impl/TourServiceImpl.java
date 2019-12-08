@@ -6,6 +6,7 @@ import ru.myfirstwebsite.dao.TourDao;
 import ru.myfirstwebsite.domain.Tour;
 import ru.myfirstwebsite.service.TourService;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -39,4 +40,23 @@ public class TourServiceImpl implements TourService {
     public void delete(Long id) {
         tourDao.delete(id);
     }
+
+    @Override
+    public Iterable<Tour> findByCountry(String country) {
+        return tourDao.findByCountry(country);
+    }
+
+    @Override
+    public Iterable<Tour> searchTour(String country, Date tour_date, Integer tourDuration, String tourPrice, Integer numStars, String tourType) {
+        Float minTourPrice = null;
+        Float maxTourPrice = null;
+        if (tourPrice != null && tourPrice != "") {
+            minTourPrice = Float.valueOf(tourPrice) - 300;
+            maxTourPrice = Float.valueOf(tourPrice) + 100;
+        }
+
+        return tourDao.searchTour(country, tour_date, tourDuration, minTourPrice, maxTourPrice, numStars, tourType);
+    }
+
+
 }

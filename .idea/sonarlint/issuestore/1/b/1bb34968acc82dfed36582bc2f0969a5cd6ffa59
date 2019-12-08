@@ -1,3 +1,5 @@
 
-Fsquid:S1172"(Remove this unused method parameter "i".(ú¬¢Š8Æé‘ÿØ-
-lsquid:S11921"IDefine a constant instead of duplicating this literal "reviewId" 3 times.(©œ±¥ÿÿÿÿÿ8óçÚÿØ-
+]squid:UselessImportCheck"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8Éô•æ-
+Ysquid:UselessImportCheck"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8Éô•æ-
+squid:UselessImportCheck	"`Remove this unused import 'org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate'.(ş¯ñ·şÿÿÿÿ8Éô•æ-
+†squid:UselessImportCheck"[Remove this unused import 'org.springframework.jdbc.core.namedparam.MapSqlParameterSource'.(²Ñ8çÕ–æ-

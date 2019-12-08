@@ -3,17 +3,13 @@ package ru.myfirstwebsite.dao.impl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.myfirstwebsite.dao.HotelDao;
 import ru.myfirstwebsite.domain.Hotel;
-import ru.myfirstwebsite.domain.enums.Features;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -66,4 +62,15 @@ public class HotelDaoImpl implements HotelDao {
             transaction.commit();
         }
     }
+
+  @Override
+  public List<Hotel> findByNumOfStars(Integer numStars) {
+    try (Session session = sessionFactory.openSession()) {
+      Query<Hotel> query =
+          session.createQuery(
+              "select tu from Hotel tu where tu.hotelStars = :numStars", Hotel.class);
+      query.setParameter("numStars", numStars);
+      return query.getResultList();
+    }
+  }
 }

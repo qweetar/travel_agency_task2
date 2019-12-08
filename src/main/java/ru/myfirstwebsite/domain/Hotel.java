@@ -35,9 +35,10 @@ public class Hotel {
     private String hotelLongitude;
 
     @Column(name = "features")
+    @Enumerated(EnumType.STRING)
     private Features hotelFeatures;
 
-    @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY)
     private Set<Tour> tours;
 
 }

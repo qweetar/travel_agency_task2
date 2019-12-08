@@ -1,3 +1,6 @@
 
-Ksquid:S1172"(Remove this unused method parameter "i".(à•Çßøÿÿÿÿ8œæÕüØ-
-msquid:S1192+"JDefine a constant instead of duplicating this literal "countryId" 3 times.(ÛàŒ´ÿÿÿÿÿ8ù‰ÿüØ-
+]squid:UselessImportCheck"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8’Ê¨¹è-
+squid:UselessImportCheck
+"`Remove this unused import 'org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate'.(ş¯ñ·şÿÿÿÿ8’Ê¨¹è-
+†squid:UselessImportCheck	"[Remove this unused import 'org.springframework.jdbc.core.namedparam.MapSqlParameterSource'.(²Ñ8’Ê¨¹è-
+Ysquid:UselessImportCheck"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8’Ê¨¹è-
