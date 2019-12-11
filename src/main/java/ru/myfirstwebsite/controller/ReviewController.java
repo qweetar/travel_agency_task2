@@ -8,7 +8,7 @@ import ru.myfirstwebsite.domain.Review;
 import ru.myfirstwebsite.service.ReviewService;
 
 @Controller
-@RequestMapping("/review/")
+@RequestMapping("/")
 public class ReviewController {
 
     @Autowired
@@ -23,6 +23,12 @@ public class ReviewController {
     @GetMapping("/review/{id}")
     public String getById(@PathVariable("id") Long id, Model model) {
         model.addAttribute("review", reviewService.getById(id));
+        return "showReview";
+    }
+
+    @GetMapping("/reviewByTour/{id}")
+    public String getReviewByTourId(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("review", reviewService.getReviewByUserId(id));
         return "showReview";
     }
 

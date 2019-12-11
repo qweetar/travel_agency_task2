@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -32,12 +33,16 @@ public class User {
   @Column(name = "password")
   private String pass;
 
-  @ManyToMany
+  @ManyToMany(fetch = FetchType.EAGER,
+          cascade = {
+          CascadeType.PERSIST,
+          CascadeType.MERGE
+  })
   @JoinTable(name = "user_tour",
           joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
           inverseJoinColumns = @JoinColumn(name = "tour_id", referencedColumnName = "id")
   )
-  private Set<Tour> tours;
+  private List<Tour> tours;
 
   @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
   private Set<Review> reviews;

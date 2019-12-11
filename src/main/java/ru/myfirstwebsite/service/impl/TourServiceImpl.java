@@ -58,5 +58,15 @@ public class TourServiceImpl implements TourService {
         return tourDao.searchTour(country, tour_date, tourDuration, minTourPrice, maxTourPrice, numStars, tourType);
     }
 
+    @Override
+    public Iterable<Tour> getToursByHotelId(Long id) {
+        return tourDao.getTourByHotelId(id);
+    }
+
+    @Override
+    public Iterable<Tour> getToursByUserId(Long id) {
+        return tourDao.getToursByHotelId(id);
+    }
+
 
 }

@@ -39,4 +39,14 @@ public class ReviewServiceImpl implements ReviewService {
     public void delete(Long id) {
         reviewDao.delete(id);
     }
+
+    @Override
+    public Iterable<Review> getReviewByTourId(Long id) {
+        return reviewDao.getReviewByTourId(id);
+    }
+
+    @Override
+    public Iterable<Review> getReviewByUserId(Long id) {
+        return reviewDao.getReviewByUserId(id);
+    }
 }

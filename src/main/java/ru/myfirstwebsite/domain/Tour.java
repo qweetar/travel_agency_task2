@@ -1,13 +1,11 @@
 package ru.myfirstwebsite.domain;
 
 import lombok.Data;
-import org.omg.CORBA.INTERNAL;
 import ru.myfirstwebsite.domain.enums.TourType;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -39,18 +37,19 @@ public class Tour {
     @Enumerated(EnumType.STRING)
     private TourType tourType;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "hotel_id", nullable = false)
     private Hotel hotel;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
-    @OneToMany(mappedBy = "tour", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tour", fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Review> reviews;
 
-
+    @ManyToMany(mappedBy = "tours", fetch = FetchType.EAGER)
+    private List<User> users;
 
 
 }

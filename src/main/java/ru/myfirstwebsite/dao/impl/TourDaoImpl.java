@@ -11,9 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.myfirstwebsite.dao.CountryDao;
 import ru.myfirstwebsite.dao.HotelDao;
 import ru.myfirstwebsite.dao.TourDao;
+import ru.myfirstwebsite.dao.UserDao;
 import ru.myfirstwebsite.domain.*;
 import ru.myfirstwebsite.domain.enums.TourType;
 
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,6 +30,9 @@ public class TourDaoImpl implements TourDao {
 
     @Autowired
     HotelDao hotelDao;
+
+    @Autowired
+    UserDao userDao;
 
     @Autowired
     @Qualifier("sessionFactory")
@@ -138,6 +143,39 @@ public class TourDaoImpl implements TourDao {
         List<Tour> results = query.getResultList();
         System.out.println("0");
         return results;
+    }
+
+    @Override
+    public Iterable<Tour> getTourByHotelId(Long id) {
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Tour> cr = cb.createQuery(Tour.class);
+        Root<Tour> root = cr.from(Tour.class);
+        cr.select(root).where(cb.equal(root.get("hotel"), id));
+
+        Query<Tour> query = session.createQuery(cr);
+        List<Tour> results = query.getResultList();
+        return results;
+    }
+
+    @Override
+    public Iterable<Tour> getToursByHotelId(Long id) {
+        Session session = sessionFactory.openSession();
+            TypedQuery<Tour> query = session.createQuery("select tu from Tour tu join tu.users u where u.id = :iduser", Tour.class);
+            query.setParameter("iduser", id);
+            List<Tour> results = query.getResultList();
+            return results;
+//
+//        Session session = sessionFactory.openSession();
+//        CriteriaBuilder cb = session.getCriteriaBuilder();
+//        CriteriaQuery<Tour> cr = cb.createQuery(Tour.class);
+//        Root<Tour> root = cr.from(Tour.class);
+//        User userFromDb = userDao.getById(id);
+//        cr.select(root).where(cb.equal(root.get("users"), userFromDb));
+//
+//        Query<Tour> query = session.createQuery(cr);
+//        List<Tour> results = query.getResultList();
+//        return results;
     }
 
 }

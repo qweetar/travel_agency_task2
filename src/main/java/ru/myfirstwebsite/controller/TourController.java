@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.myfirstwebsite.domain.Tour;
+import ru.myfirstwebsite.service.ReviewService;
 import ru.myfirstwebsite.service.TourService;
 
 import java.util.Date;
@@ -16,6 +17,9 @@ public class TourController {
 
     @Autowired
     public TourService tourService;
+
+    @Autowired
+    public ReviewService reviewService;
 
     @GetMapping("/tours")
     public String getAllTours(
@@ -55,7 +59,20 @@ public class TourController {
     @GetMapping("/tour/{id}")
     public String getById(@PathVariable("id") Long id, Model model) {
         model.addAttribute("tour", tourService.getById(id));
+        model.addAttribute("reviews", reviewService.getReviewByTourId(id));
         return "showTour";
+    }
+
+    @GetMapping("/tourByHotel/{id}")
+    public String getToursByHotelId(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("tour", tourService.getToursByHotelId(id));
+        return "showTour";
+    }
+
+    @GetMapping("/tourByUser/{id}")
+    public String getToursByUserId(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("tours", tourService.getToursByUserId(id));
+        return "tourUserList";
     }
 
     @GetMapping("/addTour")

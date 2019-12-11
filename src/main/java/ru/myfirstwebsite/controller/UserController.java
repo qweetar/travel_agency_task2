@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.myfirstwebsite.domain.User;
+import ru.myfirstwebsite.service.ReviewService;
 import ru.myfirstwebsite.service.UserService;
 
 @Controller
@@ -13,6 +14,9 @@ public class UserController {
 
     @Autowired
     public UserService userService;
+
+    @Autowired
+    public ReviewService reviewService;
 
     @GetMapping("/")
     public String index(){
@@ -33,6 +37,7 @@ public class UserController {
     @GetMapping("/user/{id}")
     public String getById(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getById(id));
+        model.addAttribute("reviews", reviewService.getReviewByTourId(id));
         return "showUser";
     }
 

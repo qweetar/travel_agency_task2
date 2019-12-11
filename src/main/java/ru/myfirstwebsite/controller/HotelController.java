@@ -8,7 +8,7 @@ import ru.myfirstwebsite.domain.Hotel;
 import ru.myfirstwebsite.service.HotelService;
 
 @Controller
-@RequestMapping("/hotel/")
+@RequestMapping("/")
 public class HotelController {
 
     @Autowired

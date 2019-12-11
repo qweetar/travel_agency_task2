@@ -1,5 +1,2 @@
 
-psquid:S00117>"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£áıà8³Ï¿Šé-
-fsquid:UselessImportCheck";Remove this unused import 'ru.myfirstwebsite.domain.Hotel'.(§Í«º8ÀÀßé-
-esquid:UselessImportCheck";Remove this unused import 'ru.myfirstwebsite.dao.HotelDao'.(¥¬ÛV8ªÂÁßé-
-usquid:S001179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰É‚ßıÿÿÿÿ8ñ®¿Šé-
+psquid:S001172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çü¸8³Ï¿Šé-

@@ -8,7 +8,7 @@ import ru.myfirstwebsite.domain.Country;
 import ru.myfirstwebsite.service.CountryService;
 
 @Controller
-@RequestMapping("/country/")
+@RequestMapping("/")
 public class CountryController {
 
     @Autowired
