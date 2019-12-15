@@ -11,8 +11,8 @@ List of Countries
         <tr>
             <td><a href="/country/${country.countryId}">${country.countryId}</a></td>
             <td>${country.countryName}</td>
-            <td><a href="/delete/${country.countryId}">Delete</a></td>
-            <td><a href="/update/${country.countryId}">Update</a></td>
+            <td><a href="/deleteCountry/${country.countryId}">Delete</a></td>
+            <td><a href="/updateCountry/${country.countryId}">Update</a></td>
         </tr>
     </#list>
 </table>

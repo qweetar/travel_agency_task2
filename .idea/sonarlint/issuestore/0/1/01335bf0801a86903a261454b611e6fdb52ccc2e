@@ -1,18 +1,18 @@
 
-~squid:S1488ª"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8š§ªñî-
-~squid:S1488œ"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8´šĞ¥î-
-\
-squid:S106"9Replace this use of System.out or System.err by a logger.(ıí“êıÿÿÿÿ8–ÂŸœî-
-„squid:S2178q"fCorrect this "&" to "&&" and extract the right operand to a variable if it should always be evaluated.(Æí¡8–ÂŸœî-
-hsquid:S2095W"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8ŞæŸáé-
-Ssquid:EmptyStatementUsageCheck‰"Remove this empty statement.(¹¼¦Óüÿÿÿÿ8½¤œî-
-isquid:S2095•"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8–ÂŸœî-
-psquid:S00117c"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ—Øô8–ÂŸœî-
-|squid:S2293m"YReplace the type specification in this constructor call with the diamond operator ("<>").(£æùßûÿÿÿÿ8–ÂŸœî-
-isquid:S2095¢"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8š§ªñî-
-W
-squid:S106"9Replace this use of System.out or System.err by a logger.(ŞñÂÏ8–ÂŸœî-
-W
-squid:S106‹"9Replace this use of System.out or System.err by a logger.(¹ï8–ÂŸœî-
-hsquid:S2095d"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8‡“Ë¥î-
-}squid:S1488^"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8ŞæŸáé-
+‚squid:S2178"fCorrect this "&" to "&&" and extract the right operand to a variable if it should always be evaluated.(Æí¡8Œ´·êï-
+Psquid:EmptyStatementUsageCheck"Remove this empty statement.(¹¼¦Óüÿÿÿÿ8Œ´·êï-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(£æùßûÿÿÿÿ8Œ´·êï-
+fsquid:S2095"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8Œ´·êï-
+fsquid:S2095"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8Œ´·êï-
+fsquid:S2095"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8Œ´·êï-
+fsquid:S2095"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8Œ´·êï-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(¹ï8Œ´·êï-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ıí“êıÿÿÿÿ8Œ´·êï-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ŞñÂÏ8Œ´·êï-
+{squid:S1488"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8Œ´·êï-
+{squid:S1488"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8Œ´·êï-
+{squid:S1488"_Immediately return this expression instead of assigning it to the temporary variable "results".(®£öİ8Œ´·êï-
+nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ—Øô8Œ´·êï-

@@ -24,7 +24,7 @@
       <ObjectId>41399</ObjectId>
       <StateNumber>2822</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>8500</IntrospectionStateNumber>
+      <IntrospectionStateNumber>9522</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|49772|49774|1
@@ -117,7 +117,7 @@ sequence|table|49810|49812|1
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>8501</IntrospectionStateNumber>
+      <IntrospectionStateNumber>9523</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -614,9 +614,9 @@ tour_id</ColNames>
       <UnderlyingIndexName>user_tour_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="93" parent="39" name="user_id">
-      <ObjectId>49902</ObjectId>
-      <StateNumber>8499</StateNumber>
+    <foreign-key id="93" parent="39" name="user_tour_usr_id_fk">
+      <ObjectId>49959</ObjectId>
+      <StateNumber>9518</StateNumber>
       <ColNames>user_id</ColNames>
       <RefTableId>49812</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -624,9 +624,9 @@ tour_id</ColNames>
       <RefKeyName>usr_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="94" parent="39" name="tour_id">
-      <ObjectId>49897</ObjectId>
-      <StateNumber>8496</StateNumber>
+    <foreign-key id="94" parent="39" name="user_tour_tour_id_fk">
+      <ObjectId>49964</ObjectId>
+      <StateNumber>9521</StateNumber>
       <ColNames>tour_id</ColNames>
       <RefTableId>49801</RefTableId>
       <RefColPositions>1</RefColPositions>

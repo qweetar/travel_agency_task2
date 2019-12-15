@@ -1,17 +1,16 @@
 package ru.myfirstwebsite.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import ru.myfirstwebsite.domain.enums.Features;
 
 import javax.persistence.*;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "hotel")
 @Data
-@ToString(exclude = "books")
 public class Hotel {
 
     @Id
@@ -38,7 +37,9 @@ public class Hotel {
     @Enumerated(EnumType.STRING)
     private Features hotelFeatures;
 
-    @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY, orphanRemoval = true)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Tour> tours;
 
 }

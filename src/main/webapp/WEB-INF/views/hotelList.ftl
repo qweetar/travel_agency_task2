@@ -21,8 +21,8 @@ List of Hotels
             <td>${hotel.hotelFeatures}</td>
             <td>${hotel.hotelLatitude}</td>
             <td>${hotel.hotelLongitude}</td>
-            <td><a href="/delete/${hotel.hotelId}">Delete</a></td>
-            <td><a href="/update/${hotel.hotelId}">Update</a></td>
+            <td><a href="/deleteHotel/${hotel.hotelId}">Delete</a></td>
+            <td><a href="/updateHotel/${hotel.hotelId}">Update</a></td>
         </tr>
     </#list>
 </table>

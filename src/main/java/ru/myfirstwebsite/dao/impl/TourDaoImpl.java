@@ -56,7 +56,7 @@ public class TourDaoImpl implements TourDao {
     public void delete(Long id) {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            session.delete(getById(id));
+            session.remove(getById(id));
             session.getTransaction().commit();
             session.close();
         }
@@ -165,17 +165,6 @@ public class TourDaoImpl implements TourDao {
             query.setParameter("iduser", id);
             List<Tour> results = query.getResultList();
             return results;
-//
-//        Session session = sessionFactory.openSession();
-//        CriteriaBuilder cb = session.getCriteriaBuilder();
-//        CriteriaQuery<Tour> cr = cb.createQuery(Tour.class);
-//        Root<Tour> root = cr.from(Tour.class);
-//        User userFromDb = userDao.getById(id);
-//        cr.select(root).where(cb.equal(root.get("users"), userFromDb));
-//
-//        Query<Tour> query = session.createQuery(cr);
-//        List<Tour> results = query.getResultList();
-//        return results;
     }
 
 }

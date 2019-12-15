@@ -1,31 +1,9 @@
 
-nsquid:CommentedOutCodeLineA"<This block of commented-out lines of code should be removed.(à¶Ô«ùÿÿÿÿ8õ„¶„á-
-isquid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.(»À¨ù8õ„¶„á-
-nsquid:CommentedOutCodeLines"<This block of commented-out lines of code should be removed.(Íº‹êúÿÿÿÿ8ÉÓ –æ-
-osquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8õ„¶„á-
-nsquid:CommentedOutCodeLine\"<This block of commented-out lines of code should be removed.(þ·ÆÁùÿÿÿÿ8õ„¶„á-
-isquid:CommentedOutCodeLineq"<This block of commented-out lines of code should be removed.(ø³ËÂ8ÉÓ –æ-
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÁíáØüÿÿÿÿ8õ„¶„á-
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(óûô»úÿÿÿÿ8õ„¶„á-
-jsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(»À¨ù8õ„¶„á-
-nsquid:CommentedOutCodeLine+"<This block of commented-out lines of code should be removed.(Ü¾¬Þüÿÿÿÿ8õ„¶„á-
-jsquid:CommentedOutCodeLineƒ"<This block of commented-out lines of code should be removed.(»À¨ù8õ„¶„á-
-jsquid:CommentedOutCodeLine»"<This block of commented-out lines of code should be removed.(™œžÜ8ö„¶„á-
-nsquid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(Ó‚²ÿÿÿÿÿ8õ„¶„á-
-osquid:CommentedOutCodeLine‰"<This block of commented-out lines of code should be removed.(´°ÈŒúÿÿÿÿ8õ„¶„á-
-jsquid:CommentedOutCodeLine‹"<This block of commented-out lines of code should be removed.(æñ”ò8õ„¶„á-
-osquid:CommentedOutCodeLineµ"<This block of commented-out lines of code should be removed.(¸¾žýûÿÿÿÿ8õ„¶„á-
-nsquid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(úôøˆùÿÿÿÿ8õ„¶„á-
-osquid:CommentedOutCodeLineÉ"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ö„¶„á-
-jsquid:CommentedOutCodeLine¸"<This block of commented-out lines of code should be removed.(»À¨ù8õ„¶„á-
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(—–ÓÅùÿÿÿÿ8Ž ³¬á-
-jsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(­½Ñ¯8õ„¶„á-
-isquid:S2095¥"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8´ãÔâ-
-osquid:CommentedOutCodeLineš"<This block of commented-out lines of code should be removed.(™¼øÿÿÿÿ8õ„¶„á-
-isquid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(»À¨ù8õ„¶„á-
-isquid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(éÝÃº8õ„¶„á-
-jsquid:CommentedOutCodeLineÁ"<This block of commented-out lines of code should be removed.(—ûŸ©8ö„¶„á-
-Nsquid:S2201¨"*The return value of "orElse" must be used.(Û¶ñÞúÿÿÿÿ8Ô“Ûâ-
-isquid:CommentedOutCodeLineg"<This block of commented-out lines of code should be removed.(Å†ßš8õ„¶„á-
-jsquid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(ÙÚ¾ç8õ„¶„á-
-isquid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(ÊŠïø8õ„¶„á-
+squid:UselessImportCheck
+"`Remove this unused import 'org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate'.(þ¯ñ·þÿÿÿÿ8¾œ¨èï-
+]squid:UselessImportCheck"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8¾œ¨èï-
+hsquid:S2095L"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8´ãÔâ-
+Msquid:S2201O"*The return value of "orElse" must be used.(Û¶ñÞúÿÿÿÿ8Ô“Ûâ-
+Ysquid:UselessImportCheck"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8¾œ¨èï-
+tsquid:UselessImportCheck"DRemove this unused import 'org.springframework.jdbc.core.RowMapper'.(¦¬ÀÙùÿÿÿÿ8¾œ¨èï-
+†squid:UselessImportCheck	"[Remove this unused import 'org.springframework.jdbc.core.namedparam.MapSqlParameterSource'.(Ž²Ñ8 Ö§èï-

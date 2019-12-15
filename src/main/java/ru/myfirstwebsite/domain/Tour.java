@@ -1,11 +1,12 @@
 package ru.myfirstwebsite.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import ru.myfirstwebsite.domain.enums.TourType;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -37,19 +38,32 @@ public class Tour {
     @Enumerated(EnumType.STRING)
     private TourType tourType;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "hotel_id", nullable = false)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Hotel hotel;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "country_id", nullable = false)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Country country;
 
-    @OneToMany(mappedBy = "tour", fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Review> reviews;
 
-    @ManyToMany(mappedBy = "tours", fetch = FetchType.EAGER)
-    private List<User> users;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+            fetch = FetchType.EAGER)
+    @JoinTable(name = "user_tour",
+            joinColumns = @JoinColumn(name = "tour_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id")
+    )
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<User> users;
 
 
 }

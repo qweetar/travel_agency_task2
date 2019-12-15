@@ -1,11 +1,11 @@
 
-†squid:UselessImportCheck	"[Remove this unused import 'org.springframework.jdbc.core.namedparam.MapSqlParameterSource'.(²Ñ8çÕ–æ-
-hsquid:S2095Z"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8•¦âîî-
-]squid:UselessImportCheck"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8Éô•æ-
-‚squid:S1488T"_Immediately return this expression instead of assigning it to the temporary variable "results".(©‹Àûÿÿÿÿ8¥ÓÅî-
-hsquid:S2095M"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8¥ÓÅî-
-‚squid:S1488a"_Immediately return this expression instead of assigning it to the temporary variable "results".(©‹Àûÿÿÿÿ8•¦âîî-
+esquid:UselessImportCheck":Remove this unused import 'ru.myfirstwebsite.domain.Tour'.(ÉË¾×8ç¤ÖÅî-
+hsquid:S2095O"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8•¦âîî-
 squid:UselessImportCheck
 "`Remove this unused import 'org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate'.(ş¯ñ·şÿÿÿÿ8Éô•æ-
-esquid:UselessImportCheck":Remove this unused import 'ru.myfirstwebsite.domain.Tour'.(ÉË¾×8ç¤ÖÅî-
-Ysquid:UselessImportCheck"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8Éô•æ-
+Ysquid:UselessImportCheck"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8Éô•æ-
+‚squid:S1488V"_Immediately return this expression instead of assigning it to the temporary variable "results".(©‹Àûÿÿÿÿ8•¦âîî-
+]squid:UselessImportCheck"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8Éô•æ-
+‚squid:S1488c"_Immediately return this expression instead of assigning it to the temporary variable "results".(©‹Àûÿÿÿÿ8¥ÓÅî-
+hsquid:S2095\"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8¥ÓÅî-
+†squid:UselessImportCheck	"[Remove this unused import 'org.springframework.jdbc.core.namedparam.MapSqlParameterSource'.(²Ñ8çÕ–æ-

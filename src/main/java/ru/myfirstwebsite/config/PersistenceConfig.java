@@ -10,13 +10,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import org.springframework.orm.jpa.JpaVendorAdapter;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.accessibility.AccessibleValue;
-import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
@@ -47,20 +42,6 @@ public class PersistenceConfig {
         transactionManager.setSessionFactory(sessionFactory);
         return transactionManager;
     }
-
-
-//    @Bean("entityManagerFactory")
-//    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-//        LocalContainerEntityManagerFactoryBean em
-//                = new LocalContainerEntityManagerFactoryBean();
-//        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-//        em.setDataSource(dataSource);
-//        em.setPackagesToScan("ru.myfirstwebsite");
-//        em.setJpaVendorAdapter(vendorAdapter);
-//        em.setJpaProperties(getHibernateProperties());
-//
-//        return em;
-//    }
 
     private Properties getHibernateProperties() {
         Properties properties = new Properties();

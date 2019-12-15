@@ -1,6 +1,8 @@
 package ru.myfirstwebsite.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -18,7 +20,9 @@ public class Country {
     @Column(name = "name")
     private String countryName;
 
-    @OneToMany(mappedBy = "country", fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Tour> tours;
 
 

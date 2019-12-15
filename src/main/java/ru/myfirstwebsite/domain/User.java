@@ -5,15 +5,11 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "usr")
-//@NamedQuery(name = "User.findByEmail", query = "select u from User u where u.email = :email")
 @Data
-@EqualsAndHashCode(of = {"id"})
-@ToString(of = {"userName", "email"})
 public class User {
 
   @Id
@@ -33,18 +29,19 @@ public class User {
   @Column(name = "password")
   private String pass;
 
-  @ManyToMany(fetch = FetchType.EAGER,
+  @ManyToMany(mappedBy = "users",
+          fetch = FetchType.EAGER,
           cascade = {
           CascadeType.PERSIST,
           CascadeType.MERGE
   })
-  @JoinTable(name = "user_tour",
-          joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-          inverseJoinColumns = @JoinColumn(name = "tour_id", referencedColumnName = "id")
-  )
-  private List<Tour> tours;
+  @ToString.Exclude
+  @EqualsAndHashCode.Exclude
+  private Set<Tour> tours;
 
-  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+  @ToString.Exclude
+  @EqualsAndHashCode.Exclude
   private Set<Review> reviews;
 
 }
